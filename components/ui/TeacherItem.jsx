@@ -12,8 +12,10 @@ function TeacherItem({ teacher, user }) {
         <Card.Subtitle className="mb-2 text-muted">
           {teacher.email}
         </Card.Subtitle>
-        <Button variant="success">Изменить</Button>
-        <form action={`/api/admin/${teacher.id}`} method="GET">
+        <a href={`/admin/update/${teacher.id}`}>
+          <Button variant="success">Изменить</Button>
+        </a>
+        <form action={`/api/admin/${teacher.id}`} method="get">
           <Button variant="danger" type="submit">
             Удалить
           </Button>
