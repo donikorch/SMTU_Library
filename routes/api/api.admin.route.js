@@ -9,10 +9,21 @@ router.post("/", async (req, res) => {
 
     const teacher = await Teacher.create({ name, email, password, facultyId });
     // const html = res.renderComponent(
-    //   TeacherItem,co
+    //   TeacherItem,
     //   { teacher },
     //   { doctype: false }
     // );
+    res.redirect("/admin");
+  } catch ({ message }) {
+    res.json({ message });
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+   if(res.locals.user.role === 'admin'){
+    const result = await Teacher.destroy({ where: {id: +req.params.id} });
+   }
     res.redirect("/admin");
   } catch ({ message }) {
     res.json({ message });
