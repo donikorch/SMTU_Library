@@ -18,7 +18,7 @@ module.exports = function Profile({ user, files, subjects }) {
           </div>
           <form
             method='post'
-            action='/api/profile/upload'
+            action='/api/file/upload'
             className='file-upload'
             encType='multipart/form-data'
           >
@@ -66,13 +66,19 @@ module.exports = function Profile({ user, files, subjects }) {
           </form>
           <div className='user-files'>
             {files ? (
-              <>
-                {files.map((file) => (
-                  <a key={file.id} href={file.path} download>
-                    {file.name}
-                  </a>
-                ))}
-              </>
+              <ul className='files-list'>
+                {files[0] ? (
+                  files.map((file) => (
+                    <li key={file.id} className='file'>
+                      <a href={`/file/${file.id}`}>{file.name}</a>
+                    </li>
+                  ))
+                ) : (
+                  <>
+                    <div>Файлов нет</div>
+                  </>
+                )}
+              </ul>
             ) : (
               <>
                 <div>Файлов пока нет</div>
