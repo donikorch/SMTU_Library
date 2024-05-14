@@ -77,14 +77,19 @@ body {
   margin-top: 0.5rem;
 }
 
-.file-view {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
 .card {
   max-width: 75%;
+}
+
+.add-teacher {
+  width: 20rem;
+}
+
+.admin-teachers-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.buttons {
+  display: flex;
 }

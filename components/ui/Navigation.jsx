@@ -23,10 +23,16 @@ module.exports = function Navigation({ user }) {
             </Nav>
           </Navbar.Collapse>
           {user ? (
-            user.role === 'teacher' || user.role === 'admin' ? (
+            user.role === 'teacher' ? (
               <Navbar.Collapse className='justify-content-end'>
                 <Nav>
                   <Nav.Link href='/profile'>Личный кабинет</Nav.Link>
+                  <Nav.Link href='/api/auth/logout'>Выйти</Nav.Link>
+                </Nav>
+              </Navbar.Collapse>
+            ) : user.role === 'admin' ? (
+              <Navbar.Collapse className='justify-content-end'>
+                <Nav>
                   <Nav.Link href='/admin'>Панель админа</Nav.Link>
                   <Nav.Link href='/api/auth/logout'>Выйти</Nav.Link>
                 </Nav>

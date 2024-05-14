@@ -1,53 +1,58 @@
-const React = require("react");
+const React = require('react');
 
 // компоненты
-const Layout = require("../Layout");
+const Layout = require('../Layout');
 
 // стили
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Stack from 'react-bootstrap/Stack';
 
 module.exports = function TeacherChange({ user, teacher, faculties }) {
   return (
     <>
-      {user.role === "admin" ? (
+      {user.role === 'admin' ? (
         <>
-          <Layout title={"Панель Администратора"} user={user}>
-            <div>
-              <form action={`/api/admin/${teacher.id}`} method="POST">
-                <Form.Group className="mb-3">
+          <Layout title={'Панель Администратора'} user={user}>
+            <Stack gap={2} className='col-md-5 mx-auto main-stack'>
+              <form
+                className='add-teacher'
+                action={`/api/admin/${teacher.id}`}
+                method='POST'
+              >
+                <Form.Group className='mb-3'>
                   <Form.Label>ФИО</Form.Label>
                   <Form.Control
-                    type="text"
-                    name="name"
+                    type='text'
+                    name='name'
                     required
-                    value={teacher.name}
+                    defaultValue={teacher.name}
                   />
                 </Form.Group>
-                <Form.Group className="mb-3">
+                <Form.Group className='mb-3'>
                   <Form.Label>Почта</Form.Label>
                   <Form.Control
-                    type="text"
-                    name="email"
-                    placeholder="Почта"
-                    value={teacher.email}
+                    type='text'
+                    name='email'
+                    placeholder='Почта'
+                    defaultValue={teacher.email}
                     required
                   />
                 </Form.Group>
-                <Form.Group className="mb-3">
+                <Form.Group className='mb-3'>
                   <Form.Label>Пароль</Form.Label>
                   <Form.Control
-                    type="text"
-                    name="pass"
-                    value="*******"
+                    type='text'
+                    name='pass'
+                    defaultValue='*******'
                     required
                   />
                 </Form.Group>
                 <Form.Label>Факультет</Form.Label>
                 <Form.Select
-                  name="facultyId"
-                  aria-label="Default select example"
-                  value={teacher.facultyId}
+                  name='facultyId'
+                  aria-label='Default select example'
+                  defaultValue={teacher.facultyId}
                   required
                 >
                   {faculties.map((faculty) => (
@@ -56,14 +61,16 @@ module.exports = function TeacherChange({ user, teacher, faculties }) {
                     </option>
                   ))}
                 </Form.Select>
-                <Button type="submit">Добавить</Button>
+                <Button type='submit' className='mt-3'>
+                  Сохранить
+                </Button>
               </form>
-            </div>
+            </Stack>
           </Layout>
         </>
       ) : (
         <div>
-          {" "}
+          {' '}
           <h1>404</h1>
         </div>
       )}
