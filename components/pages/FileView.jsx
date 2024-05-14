@@ -6,11 +6,12 @@ const Layout = require('../Layout');
 // стили
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Stack from 'react-bootstrap/Stack';
 
 module.exports = function FileView({ user, file }) {
   return (
     <Layout title={'Файл'} user={user}>
-      <div className='file-view' data-id={file.id}>
+      <Stack gap={2} className='col-md-5 mx-auto main-stack' data-id={file.id}>
         <h1>{file.name}</h1>
         <Card body className='card mb-5'>
           {file.description}
@@ -45,7 +46,7 @@ module.exports = function FileView({ user, file }) {
             </>
           )}
         </div>
-      </div>
+      </Stack>
     </Layout>
   );
 };
