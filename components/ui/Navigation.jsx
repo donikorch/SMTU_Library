@@ -19,7 +19,6 @@ module.exports = function Navigation({ user }) {
             <Nav>
               <Nav.Link href='/search/authors'>Авторы</Nav.Link>
               <Nav.Link href='/search/files'>Файлы</Nav.Link>
-              <Nav.Link href='#'>Справка</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           {user ? (

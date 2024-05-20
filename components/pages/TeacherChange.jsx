@@ -32,7 +32,7 @@ module.exports = function TeacherChange({ user, teacher, faculties }) {
                 <Form.Group className='mb-3'>
                   <Form.Label>Почта</Form.Label>
                   <Form.Control
-                    type='text'
+                    type='email'
                     name='email'
                     placeholder='Почта'
                     defaultValue={teacher.email}
@@ -42,7 +42,7 @@ module.exports = function TeacherChange({ user, teacher, faculties }) {
                 <Form.Group className='mb-3'>
                   <Form.Label>Пароль</Form.Label>
                   <Form.Control
-                    type='text'
+                    type='password'
                     name='pass'
                     defaultValue='*******'
                     required

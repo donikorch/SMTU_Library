@@ -31,7 +31,7 @@ module.exports = function AdminPage({ user, teachers, faculties }) {
                 <Form.Group className='mb-3'>
                   <Form.Label>Почта</Form.Label>
                   <Form.Control
-                    type='text'
+                    type='email'
                     name='email'
                     placeholder='Почта'
                     required
@@ -40,7 +40,7 @@ module.exports = function AdminPage({ user, teachers, faculties }) {
                 <Form.Group className='mb-3'>
                   <Form.Label>Пароль</Form.Label>
                   <Form.Control
-                    type='text'
+                    type='password'
                     name='pass'
                     placeholder='Пароль'
                     required
@@ -52,7 +52,7 @@ module.exports = function AdminPage({ user, teachers, faculties }) {
                   aria-label='Default select example'
                   required
                 >
-                  <option value=''>Выберите Предмет</option>
+                  <option value=''>Выберите факультет</option>
                   {faculties.map((faculty) => (
                     <option key={faculty.id} value={faculty.id}>
                       {faculty.name}
