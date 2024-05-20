@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Op } = require('sequelize');
+const { Op, where } = require('sequelize');
 
 // компоненты
 const Authors = require('../../components/pages/Authors');
@@ -64,6 +64,23 @@ router.get('/authors', async (req, res) => {
   }
 });
 
+router.get('/authors/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const files = await File.findAll({
+      where: { teacherId: id },
+      include: {
+        model: Teacher,
+      },
+    });
+    const html = res.renderComponent(Files, { files });
+
+    res.send(html);
+  } catch (error) {
+    res.json({ message: 'error', error });
+  }
+});
+
 router.get('/files', async (req, res) => {
   try {
     const files = await File.findAll({
@@ -71,6 +88,41 @@ router.get('/files', async (req, res) => {
         model: Teacher,
       },
     });
+    const html = res.renderComponent(Files, { files });
+
+    res.send(html);
+  } catch (error) {
+    res.json({ message: 'error', error });
+  }
+});
+
+router.get('/sortedFiles', async (req, res) => {
+  try {
+    const { sort, sortOrder } = req.query;
+
+    // Определение порядка сортировки
+    let order;
+    switch (sort) {
+      case '1':
+        order = ['name', sortOrder === 'ascending' ? 'ASC' : 'DESC'];
+        break;
+      case '2':
+        order = ['Teacher', 'name', sortOrder === 'ascending' ? 'ASC' : 'DESC'];
+        break;
+      case '3':
+        order = ['createdAt', sortOrder === 'ascending' ? 'ASC' : 'DESC'];
+        break;
+      default:
+        order = [];
+    }
+
+    const files = await File.findAll({
+      include: {
+        model: Teacher,
+      },
+      order: [order],
+    });
+
     const html = res.renderComponent(Files, { files });
 
     res.send(html);

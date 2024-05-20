@@ -7,7 +7,7 @@ if (buttonDelete) {
       const messageConfirm = confirm('Удалить данный файл?');
 
       if (messageConfirm) {
-        const id = event.target.closest('.file-view').dataset.id;
+        const id = event.target.closest('.main-stack').dataset.id;
         const res = await fetch(`/api/file/delete/${id}`, {
           method: 'DELETE',
         });

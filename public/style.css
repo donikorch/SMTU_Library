@@ -93,3 +93,7 @@ body {
 .buttons {
   display: flex;
 }
+
+.sort-select {
+  width: 15rem;
+}

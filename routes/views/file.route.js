@@ -5,7 +5,7 @@ const FileView = require('../../components/pages/FileView');
 const FileChange = require('../../components/pages/FileChange');
 
 // модели
-const { File, Subject, SubjectTeacher } = require('../../db/models');
+const { File, Subject, SubjectTeacher, Teacher } = require('../../db/models');
 
 router.get('/:id', async (req, res) => {
   try {
@@ -13,6 +13,7 @@ router.get('/:id', async (req, res) => {
 
     const file = await File.findOne({
       where: { id },
+      include: { model: Teacher },
     });
 
     const html = res.renderComponent(FileView, { file });
