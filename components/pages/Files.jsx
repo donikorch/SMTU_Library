@@ -55,7 +55,7 @@ module.exports = function Files({ files, user }) {
             ))
           ) : (
             <>
-              <div>Файлов нет</div>
+              <div className='no-files'>Файлов нет</div>
             </>
           )}
         </ul>
