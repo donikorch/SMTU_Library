@@ -6,7 +6,9 @@ module.exports = function Navigation({ user }) {
     <>
       <Navbar bg='primary' data-bs-theme='dark' className='navbar'>
         <Container>
-          <Navbar.Brand href='/'>Библиотека СПбГМТУ</Navbar.Brand>
+          <Navbar.Brand className='brand' href='/'>
+            Библиотека СПбГМТУ
+          </Navbar.Brand>
           <Nav className='flex-column flex-md-row'>
             <Nav.Link href='/search/authors'>Авторы</Nav.Link>
             <Nav.Link href='/search/files'>Файлы</Nav.Link>
