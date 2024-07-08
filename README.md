@@ -4,6 +4,6 @@
 
 Функционал: загрузка/редактироваие и удаление материалов преподавателями, регистрация студентов, функционал администратора для создания учетных записей преподавателей, скачивание файлов студентами, поиск файлов и сортировка.
 
-Стек: JavaScript, React, PostgreSQL, Sequelize ORM, Node.js, Express.js, Bootstrap
+Стек: JavaScript, React, PostgreSQL, Sequelize ORM, Node.js, Express.js, Bootstrap.
 
 ![Снимок экрана_29-6-2024_16238_localhost](https://github.com/donikorch/SMTU_Library/assets/126454671/12a30eaf-bebe-4d68-8f81-c15b56a0a43f)
